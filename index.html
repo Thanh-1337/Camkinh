@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<div class="register-container">
+    <h2>Đăng Ký Tham Gia</h2>
+    <form id="registerForm">
+        <label for="name">Họ và Tên:</label>
+        <input type="text" id="name" name="name" placeholder="Nhập họ và tên" required>
+
+        <label>Giới tính:</label>
+        <div class="gender-options">
+            <input type="radio" id="male" name="gender" value="Nam" required>
+            <label for="male">Nam</label>
+            <input type="radio" id="female" name="gender" value="Nữ">
+            <label for="female">Nữ</label>
+            <input type="radio" id="other" name="gender" value="Khác">
+            <label for="other">Khác</label>
+        </div>
+
+        <label for="phone">Số điện thoại:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Nhập email" required>
+
+        <label for="music">Thể loại âm nhạc yêu thích:</label>
+        <select id="music" name="music">
+            <option value="" disabled selected>Chọn thể loại âm nhạc</option>
+            <option value="Pop">Pop</option>
+            <option value="Rock">Rock</option>
+            <option value="Jazz">Jazz</option>
+            <option value="EDM">EDM</option>
+            <option value="Cổ điển">Cổ điển</option>
+            <option value="Khác">Khác</option>
+        </select>
+
+        <label for="join-time">Mong muốn tham gia câu lạc bộ khi nào?</label>
+        <select id="join-time" name="join-time">
+            <option value="" disabled selected>Chọn thời gian</option>
+            <option value="Ngay lập tức">Ngay lập tức</option>
+            <option value="Trong vòng 1 tháng">Trong vòng 1 tháng</option>
+            <option value="Trong vòng 3 tháng">Trong vòng 3 tháng</option>
+            <option value="Chưa xác định">Chưa xác định</option>
+        </select>
+
+        <label for="reason">Lý do tham gia:</label>
+        <textarea id="reason" name="reason" placeholder="Viết lý do của bạn..." required></textarea>
+
+        <button type="button" onclick="submitForm()">Đăng Ký</button>
+    </form>
+</div>
+
+<script>
+    function submitForm() {
+        var name = document.getElementById("name").value;
+        var gender = document.querySelector('input[name="gender"]:checked');
+        var phone = document.getElementById("phone").value;
+        var email = document.getElementById("email").value;
+        var music = document.getElementById("music").value;
+        var joinTime = document.getElementById("join-time").value;
+        var reason = document.getElementById("reason").value;
+
+        if (name === "" || !gender || phone === "" || email === "" || music === "" || joinTime === "" || reason === "") {
+            alert("Vui lòng điền đầy đủ thông tin!");
+        } else {alert("Đăng ký thành công! Chúng tôi sẽ liên hệ với bạn qua email.");
+            document.getElementById("registerForm").reset();
+        }
+    }
+</script>
+
+<style>
+    .register-container {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%;
+        margin: 30px auto;
+        text-align: center;
+    }
+
+    .register-container h2 {
+        font-family: monospace;
+        font-size: 30px;
+    }
+
+    .register-container label {
+        font-family: monospace;
+        font-size: 18px;
+        display: block;
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .register-container input,
+    .register-container textarea,
+    .register-container select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .gender-options {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 5px;
+    }
+
+    .register-container button {
+        background-color: navy;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 15px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .register-container button:hover {
+        background-color: darkblue;
+    }
+</style>
